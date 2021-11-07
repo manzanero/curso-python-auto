@@ -34,10 +34,10 @@ El intérprete base que ejecuta los archivos con la extensión ".py" que contien
 
 1. Visitar https://www.python.org/downloads/release/python-3100/ para descargar la última distribución de Python
 2. Iniciar el instalador y elegir "customize installation", luego "next"
-3. Marcar "Add Python to environment variables" y poner "C:/Users/{mtp_user}/Python310" como ruta de instalación
+3. Marcar "Add Python to environment variables" y poner "C:/Users/{user}/Python310" como ruta de instalación
 4. Al terminar la instalación, clicar la opción de "disable length limit", si aparece (requiere permisos de admin)
 
-Para comprobar que la instalación es correcta y que las rutas "C:/Users/{mtp_user}/Python310/" y 
+Para comprobar que la instalación es correcta y que las rutas "C:/Users/{user}/Python310/" y 
 "C:/Users/{user}/Python310/Scripts/" están en el "path", abrir un cmd y poner:
 
 ```shell
@@ -63,7 +63,7 @@ Editor de código especializado en Python
 ```shell
 git config --global user.name "{user_github}"
 git config --global user.email {email}
-git clone git@github.com:Manzanero/curso-python-auto.git
+git clone git@github.com:Manzanero/curso-python-auto.git  # si pide confirmación, escribir "yes" 
 cp -r curso-python-auto/test-lab .
 ```
 
