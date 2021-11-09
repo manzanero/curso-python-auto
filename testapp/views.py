@@ -17,12 +17,12 @@ def get_example(request):
         }
     }
 
-    return JsonResponse(response, json_dumps_params={'indent': 2})
+    return JsonResponse(response, safe=False, json_dumps_params={'indent': 2})
 
 
 @csrf_exempt
 def post_example(request):
-
+    body = request.body.decode()
     response = {
         'request': {
             'time': datetime.now().isoformat(),
@@ -30,8 +30,8 @@ def post_example(request):
             'path': request.path,
             'params': request.GET,
             'headers': dict(request.headers),
-            'body': json.loads(request.body.decode()),
+            'body': json.loads(body) if body != "" else {},
         }
     }
 
-    return JsonResponse(response, json_dumps_params={'indent': 2})
+    return JsonResponse(response, safe=False, json_dumps_params={'indent': 2})

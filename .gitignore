@@ -2,6 +2,7 @@
 __pycache__
 temp
 static_root
+db.sqlite3
 
 
 # Jupyter Notebook
