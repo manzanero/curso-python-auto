@@ -22,7 +22,6 @@ def get_example(request):
 
 @csrf_exempt
 def post_example(request):
-    body = request.body.decode()
     response = {
         'request': {
             'time': datetime.now().isoformat(),
@@ -30,7 +29,7 @@ def post_example(request):
             'path': request.path,
             'params': request.GET,
             'headers': dict(request.headers),
-            'body': json.loads(body) if body != "" else {},
+            'body': request.body.decode(),
         }
     }
 
