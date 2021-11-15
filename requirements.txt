@@ -1,2 +1,5 @@
 django
 whitenoise
+
+openpyxl
+ursina

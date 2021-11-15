@@ -1,4 +1,3 @@
-import json
 from datetime import datetime
 
 from django.http import JsonResponse
@@ -6,7 +5,6 @@ from django.views.decorators.csrf import csrf_exempt
 
 
 def get_example(request):
-
     response = {
         'request': {
             'time': datetime.now().isoformat(),
