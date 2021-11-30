@@ -3,7 +3,8 @@ __pycache__
 temp
 static_root
 db.sqlite3
-
+chromedriver.exe
+.secret_key
 
 # Jupyter Notebook
 .ipynb_checkpoints
