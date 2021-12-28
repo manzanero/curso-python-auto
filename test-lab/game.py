@@ -4,6 +4,13 @@ from openpyxl import load_workbook
 from player import Player
 
 
+app = Ursina()
+
+sky = Sky(texture='sky_default')
+
+text = Text(text="escape = quit", color=color.black, scale=(2, 2), x=-0.45, y=0.45, parent=camera.ui)
+
+
 class LevelGrid(object):
 
     def __init__(self, excel_file):
@@ -36,26 +43,6 @@ class LevelGrid(object):
             raise Exception(f"Not a valid color: ({col}, {row})")
 
 
-class PauseMenu(Entity):
-
-    def __init__(self, player):
-        super().__init__(parent=camera.ui)
-        self.player = player
-
-        btn__resume = Button(text="Resume", color=color.black, scale_y=0.1, scale_x=0.3, y=0, parent=self)
-        btn__resume.on_click = self.resume
-
-        btn__quit = Button(text="Quit", color=color.black, scale_y=0.1, scale_x=0.3, y=-0.2, parent=self)
-        btn__quit.on_click = application.quit
-
-    def resume(self):
-        self.player.enable()
-        mouse.locked = True
-        destroy(self)
-
-
-app = Ursina()
-sky = Sky(texture='sky_default')
 grid = LevelGrid('level.xlsx')
 
 x_max = grid.max_col + 2
@@ -103,14 +90,6 @@ for z in range(0, z_min, -1):
                    collider="box", texture="white_cube", position=(x, 0, z), rotation=(0, 0, 0))
 
 
-def input(key):  # NoQA
-    if key == "escape" and player.enabled:
-        mouse.locked = False
-        player.disable()
-        PauseMenu(player)
-
-text = Text(text="escape = quit", color=color.black, scale=(2, 2), x=-0.45, y=0.45, parent=camera.ui)
-
 def update():
     ray = raycast(player.position, player.down, distance=2, ignore=[player, ])  # NoQA
 
@@ -122,6 +101,31 @@ def update():
 
         btn__quit = Button(text="Quit", color=color.black, scale_y=0.1, scale_x=0.3, y=-0.2, parent=camera.ui)
         btn__quit.on_click = application.quit
+
+
+class PauseMenu(Entity):
+
+    def __init__(self, player):
+        super().__init__(parent=camera.ui)
+        self.player = player
+
+        btn__resume = Button(text="Resume", color=color.black, scale_y=0.1, scale_x=0.3, y=0, parent=self)
+        btn__resume.on_click = self.resume
+
+        btn__quit = Button(text="Quit", color=color.black, scale_y=0.1, scale_x=0.3, y=-0.2, parent=self)
+        btn__quit.on_click = application.quit
+
+    def resume(self):
+        self.player.enable()
+        mouse.locked = True
+        destroy(self)
+
+
+def input(key):  # NoQA
+    if key == "escape" and player.enabled:
+        mouse.locked = False
+        player.disable()
+        PauseMenu(player)
 
 
 app.run()
