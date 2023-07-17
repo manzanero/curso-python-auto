@@ -5,6 +5,9 @@ from player import Player
 
 
 app = Ursina()
+window.size = (800, 600)
+window.update_aspect_ratio()
+
 
 sky = Sky(texture='sky_default')
 
