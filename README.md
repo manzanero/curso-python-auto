@@ -47,7 +47,7 @@ python -V
 El resultado debería ser "Python 3.12.8" en cualquier otro caso añadir a mano las rutas a la variable de entorno del
 sistema "path" las dos rutas mencionadas
 
-### 4 Java JDK
+### 4. Java JDK
 1. Visitar el sitio oficial de Oracle: https://www.oracle.com/java/technologies/javase/jdk21-archive-downloads.html
 2. Iniciar el instalador y continuar con todo por defecto
 3. En "Variables del sistema", buscar o crear JAVA_HOME con el valor de la ruta de instalción, por defecto: C:\Program Files\Java\jdk-21
