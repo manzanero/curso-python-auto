@@ -25,29 +25,35 @@ Software de control de versiones que se usará para guardar el progreso
 
 Se trata de un paquete de aplicaciones para experimentar con código escrito en Python 
 
-1. Visitar https://www.anaconda.com/products/individual para descargar la última distribución de Anaconda
+1. Visitar https://www.anaconda.com/products/individual para descargar la última distribución de Anaconda (Se puede descargar sin registrarse)
 2. Iniciar el instalador y dejar todo por defecto menos en opciones avanzadas, donde se desmarca la de "default Python"
 
 ### 3. Python
 
 El intérprete base que ejecuta los archivos con la extensión ".py" que contienen el código
 
-1. Visitar https://www.python.org/downloads/release/python-3100/ para descargar la última distribución de Python
+1. Visitar [https://www.python.org](https://www.python.org/downloads/release/python-3128/) para descargar la última distribución estable de Python
 2. Iniciar el instalador y elegir "customize installation", luego "next"
-3. Marcar "Add Python to environment variables" y poner "C:/Users/{user}/Python310" como ruta de instalación
+3. Marcar "Add Python to environment variables" y poner "C:/Users/{user}/Python312" como ruta de instalación
 4. Al terminar la instalación, clicar la opción de "disable length limit", si aparece (requiere permisos de admin)
 
-Para comprobar que la instalación es correcta y que las rutas "C:/Users/{user}/Python310/" y 
-"C:/Users/{user}/Python310/Scripts/" están en el "path", abrir un cmd y poner:
+Para comprobar que la instalación es correcta y que las rutas "C:/Users/{user}/Python312/" y 
+"C:/Users/{user}/Python312/Scripts/" están en la variriable del sistema "PATH", abrir un cmd y poner:
 
 ```shell
 python -V
 ```
 
-El resultado debería ser "Python 3.10.0" en cualquier otro caso añadir a mano las rutas a la variable de entorno del
+El resultado debería ser "Python 3.12.8" en cualquier otro caso añadir a mano las rutas a la variable de entorno del
 sistema "path" las dos rutas mencionadas
 
-### 4. PyCharm
+### 4 Java JDK
+1. Visitar el sitio oficial de Oracle: https://www.oracle.com/java/technologies/javase/jdk21-archive-downloads.html
+2. Iniciar el instalador y continuar con todo por defecto
+3. En "Variables del sistema", buscar o crear JAVA_HOME con el valor de la ruta de instalción, por defecto: C:\Program Files\Java\jdk-21
+4. verificar la instalación con el comando en un cmd "java -version"
+
+### 5. PyCharm
 
 Editor de código especializado en Python
 
@@ -79,14 +85,14 @@ C:/
   |    +- {user}/
   |        ...
   |         +- Anaconda3/
-  |         +- Python310/
+  |         +- Python312/
   |         +- workspaces/
   |              +- curso-python-auto/
   |              +- test-lab/
   +- Program Files/
       ...
        +- JetBrains/
-            +- PyCharm Community Edition 2021/
+            +- PyCharm Community Edition 2024/
 ```
 
 ## Abrir un capítulo del curso
